@@ -1,0 +1,51 @@
+<!doctype HTML>
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>jubeat ripples 台灣玩家紅譜平均排行榜 (&beta;)</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/script.js"></script>
+  <link type="text/css" rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div id="container">
+  <div id="header">
+    <h1>jubeat ripples 台灣玩家 Extreme 譜面平均排行榜</h1>
+    <h3>統計</h3>
+  </div>
+  <div id="ranking">
+  <h4>分歌曲統計</h4>
+  <table>
+  <tr>
+    <th>歌曲名</th>
+    <th class="average_score">Top 25平均</th>
+    <th class="average_score">Top 100平均</th>
+<!--    <th class="score">EXC</th>
+    <th class="score">SSS</th><th class="score">SS</th>
+    <th class="score">S</th><th class="score">A</th>
+    <th class="score">B</th><th class="score">C</th>-->
+    <th>最高分</th>
+  -->
+  </tr>
+  {% for song in songs %}
+  <tr class="{% cycle odd,even %}">
+  <td><a href="#" target="_blank">{{song.name}}</a></td>
+  <td class="average_score">{{song.score_average_top25}}</td>
+  <td class="average_score">{{song.score_average_top100}}</td>
+  <td class="average_score">{{song.top_score}}</td>
+  </tr>
+  {% endfor %}
+  </table>
+  </div>
+  <div id="content">
+    由於資料更新的技術限制，資訊可能會有延遲情形。敬請見諒。
+  </div>
+   </div>
+  <div id="footer">
+    <p>維護者：<a href="http://littleb.tc">Littlebtc</a> (PTT/巴哈的ybite，卡名ZHAIQ)。</p><p>jubeat ripples 是 KONAMI Digital Entertainment 的註冊商標。</p>
+    <p>本站與 KONAMI 或其他遊戲相關業者無任何關連。 This site is <strong>not</strong> affiliated with KONAMI.</p>
+  </div>
+  </div>
+</body>
+
+</html>

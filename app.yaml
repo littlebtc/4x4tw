@@ -1,0 +1,24 @@
+application: littlebtc
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /static
+  static_dir: static
+- url: /robots.txt
+  static_files: static/robots.txt
+  upload: static/robots.txt
+- url: /googlef8b9ed87aabf2d91.html
+  static_files: static/googlef8b9ed87aabf2d91.html
+  upload: static/googlef8b9ed87aabf2d91.html
+- url: /ju/.*
+  script: main.py
+- url: /updater/.*
+  script: updater.py
+  login: admin
+- url: /stats/.*
+  script: stats.py
+  login: admin
+- url: .*
+  script: hello.py

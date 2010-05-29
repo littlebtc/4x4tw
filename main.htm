@@ -1,0 +1,81 @@
+<!doctype HTML>
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>jubeat ripples 台灣玩家紅譜平均排行榜 (&beta;)</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/script.js"></script>
+  <link type="text/css" rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div id="container">
+  <div id="header">
+    <h1>jubeat ripples 台灣玩家 Extreme 譜面平均排行榜</h1>
+    <p>這是台灣玩家在音樂遊戲 <a href="http://www.konami.jp/bemani/jubeat/ripples/" target="_blank">jubeat ripples</a> 中所有歌曲 EXTREME 譜面（俗稱「紅譜」）分數的平均排行。任何在台灣遊玩的玩家都可以加入這個排行榜，以了解自己的實力並設定新的遊戲目標。</p>
+    <p>Average score ranking for Extreme level, for jubeat ripples player in Taiwan</p>
+    <p id="nav"><a href="#register">登錄 / 更新 / 刪除分數</a></p>
+    <div id="announce">
+      <h3>最新消息</h3>
+      <ul> 
+        <li>現在起每週會在巴哈姆特 jubeat 哈啦板的<a href="http://forum.gamer.com.tw/C.php?bsn=16800&snA=1465" target="_blank">討論串</a>公開對照表，對這個系統有意見也歡迎在那裡提供。</li>
+        <li>2/22更新：分譜面成績集計測試開始！統計未來才會提供。</li>
+        <li>工商服務：「<a href="http://forum.gamer.com.tw/C.php?bsn=16800&snA=1280">jubeat ripples 全國大賽選手權</a>」大會熱烈展開中</li>
+      </ul>
+    </div>
+  </div>
+  <div id="ranking">
+  <p>排行如下，目前的資料最大延遲為 {{data_lag}} 日。</p>
+  {% ifnotequal rankers|length 0 %}
+  <table>
+  <tr>
+    <th class="rank">Rank</th><th>卡名</th><th class="average_score">紅譜平均</th>
+    <th class="score">EXC</th>
+    <th class="score">SSS</th><th class="score">SS</th>
+    <th class="score">S</th><th class="score">A</th>
+    <th class="score">B</th><th class="score">C</th>
+    <th class="tbs_rank">TBS排名</th>
+  </tr>
+  {% for ranker in rankers %}
+  <tr class="{% cycle odd,even %}">
+    <td class="rank">{{ranker.rank}}</td><td><a href="http://massda.dyndns.org/jubeat_ripples/{{ranker.friend_id}}/" target="_blank">{{ranker.card_name|escape|spacify}}</a></td>
+    <td class="average_score">{{ranker.score_average}}</td><td class="score">{{ranker.songs_exc}}</td>
+    <td class="score">{{ranker.songs_sss}}</td><td class="score">{{ranker.songs_ss}}</td>
+    <td class="score">{{ranker.songs_s}}</td><td class="score">{{ranker.songs_a}}</td>
+    <td class="score">{{ranker.songs_b}}</td><td class="score">{{ranker.songs_c}}</td>
+    <td class="tbs_rank">{{ranker.tbs_rank}}</td>
+  </tr>
+  {% endfor %}
+  </table>
+  {% endifnotequal %}
+  </div>
+  <div id="content">
+  <a name="register"></a>
+  <h3>登錄新玩家 / 更新分數 / 刪除非公開玩家分數</h3>
+  <form action="/ju/add" method="POST" id="form">
+    <p>輸入 jubeat ripples 的朋友ID（フレンドID，一串 14400 開頭的數字）：
+    <input type="text" name="friend_id" id="friend_id">
+    <input type="submit" value="更新資訊" id="submit"/>
+    </p>
+  </form>
+     <div id="notice">
+    <strong>注意事項：</strong>
+    <ul>
+      <li>100名以後的名次請參考<a href="http://forum.gamer.com.tw/C.php?bsn=16800&snA=1465" target="_blank">對照表</a>。</li>
+      <li>遊戲者的「最終遊玩區域」須在「台灣」才能加入本排名。</li>
+      <li>任何人都可以把別人的成績加入此成績表，且目前暫時不計畫提供特定玩家除外功能。如果不希望在此成績表被列出，請將您的玩家資料設為非公開後重新以您的朋友ID登錄，您在本站上的成績就會被消去。</li>
+      <li>平均算法：比照 massda 成績表，為總成績 / 已列出譜面數。<br />例如，一個 Gold Wolf 且還沒玩過〈隅田川夏恋歌〉跟〈Macuilxochitl〉的玩家平均是總成績 / 108</li>
+      <li>TBS排名：Total Best Score Ranking，不分譜面不分地區最高分總合排名，也是 jubeat 還你卡片前所顯示的那個排名。</li>
+      <li>出現「573 is down」請勿驚慌，那表示我們按得太用力了... 囧 但如果一直都沒有恢復的話可能是被573 block了，請通知管理者。</li>
+      <li>本系統大概每天台灣時間 7:00（8:00 JST）左右進行自動成績更新，頻率為每分鐘更新約 8 人的成績。每天只更新紀錄最久的 250 名。<br />This system will automatically update scores from KONAMI server every day, beginning at 8:00 JST, update 8 players' scores per minute. Only oldest 250 player records will be updated.<br>To 573: If it causes some problem to you, send mail to sst.dreams (gmail) to notify me.</li>
+      <li>未來預計追加：修Bug、玩家團體分類(?)</li>
+    </ul>
+  </div>
+   </div>
+  <div id="footer">
+    <p>維護者：<a href="http://littleb.tc">Littlebtc</a> (PTT/巴哈的ybite，卡名ZHAIQ)。</p><p>jubeat ripples 是 KONAMI Digital Entertainment 的註冊商標。</p>
+    <p>本站與 KONAMI 或其他遊戲相關業者無任何關連。 This site is <strong>not</strong> affiliated with KONAMI.</p>
+  </div>
+  </div>
+</body>
+
+</html>

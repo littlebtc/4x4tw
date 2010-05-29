@@ -1,0 +1,41 @@
+<!doctype HTML>
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>台灣紅譜平均排行榜 (&beta;)</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/script.js"></script>
+  <link type="text/css" rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div id="container">
+  <div id="header">
+    <h1>jubeat ripples 台灣玩家 Extreme 譜面平均排行榜</h1>
+    <div id="announce">
+      <h3>統計</h3>
+    </div>
+  </div>
+  <h4>玩家排名與平均對應</h4>
+  <p>目前總共有{{user_num}}位玩家加入本排行。以下將顯示每25名為單位的大略對照分數。</p>
+  <div id="ranking">
+  {% ifnotequal user_stats|length 0 %}
+  <table>
+  <tr>
+    <th class="rank">Rank</th><th class="average_score">紅譜平均</th>
+  </tr>
+  {% for user_stat in user_stats %}
+  <tr class="{% cycle odd,even %}">
+    <td class="rank">{{user_stat.rank}}</td>
+    <td class="average_score">{{user_stat.score_average}}</td>
+  </tr>
+  {% endfor %}
+  </table>
+  {% endifnotequal %}
+  </div>
+  <div id="footer">
+    <p>維護者：<a href="http://littleb.tc">Littlebtc</a> (PTT/巴哈的ybite，卡名ZHAIQ)</p>
+  </div>
+  </div>
+</body>
+
+</html>

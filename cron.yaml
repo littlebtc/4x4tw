@@ -1,0 +1,5 @@
+cron:
+- description: score update
+  url: /updater/
+  schedule: every day 23:00
+

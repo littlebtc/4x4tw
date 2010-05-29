@@ -1,0 +1,23 @@
+<!doctype HTML>
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>jubeat ripples 台灣玩家紅譜平均排行榜 (&beta;)</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/script.js"></script>
+  <link type="text/css" rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="content">
+      <h3>「{{card_name|escape|spacify}}」的名次採計已經完成</h3>
+      目前在排行榜的名次為：
+      <div class="rankbox">{{rank}}</div>
+      <p style="margin: 5px 0; font-size: 150%;">請協助測試分數採計！
+      <p style="margin: 5px 0; margin-bottom: 30px; font-size: 125%;">看看<a href="/ju/test?friend_id={{friend_id}}" target="_blank">採計分數顯示</a>檢查是否正確，有錯誤請回報到巴哈或PTT。</p>
+      <p><a href="/ju/">回到成績表</a> </p>
+    </div>
+  </div>
+</body>
+
+</html>

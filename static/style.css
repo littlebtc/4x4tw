@@ -1,0 +1,136 @@
+body {
+  font-size: 90%;
+  text-align: center;
+  margin: 0;
+  color: #24565C;
+}
+a {
+  color: #24565C;
+}
+p, ul, li, h1, h2, h3 {
+  margin: 0;
+}
+
+h3 {
+  margin: 5px 0;
+}
+
+#container {
+  width: 800px;
+  margin: auto;
+  text-align: left;
+}
+
+#header {
+  padding: 10px 25px;
+  background: #EDF7F2;
+  color: #4BB5C1;
+}
+h1 {
+  margin-bottom: 5px;
+  font-size: 175%;
+  color: #24565C;
+}
+
+#nav {
+  line-height: 50px;
+  margin: 5px 0;
+}
+
+#nav a {
+  width: 120px;
+  margin: 15px 0;
+  padding: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: 1px solid #24565C;
+  background: #3A8B94;
+  background: -moz-linear-gradient(top, #357E87 0%,
+                                        #4BB5C1 2%,
+                                        #3A8B94 97%,
+                                        #7FC6BC 100%);
+  font-weight: bold;
+  text-shadow: -1px -1px 2px #999999;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+#ranking table {
+  width: 100%;
+  margin: 10px 0;
+  padding: 0;
+  border-collapse: collapse;
+  border: 1px solid #96CA2D;
+}
+
+#ranking th {
+  background: #C3F75C;
+  color: #5C7D1B;
+  padding: 7px;
+  
+}
+
+#ranking td {
+  margin: 0;
+  padding: 7px;
+}
+
+#ranking td.rank
+{
+  text-align: right;
+  width: 40px;
+  padding-right: 20px;
+}
+#ranking td.score
+{
+  text-align: right;
+  width: 20px;
+  padding-right: 20px;
+}
+#ranking td.average_score {
+  text-align: right;
+  width: 60px;
+  padding-right: 50px;
+}
+#ranking th.tbs_rank ,
+#ranking td.tbs_rank {
+  padding-left: 40px;
+  width: 60px;
+}
+
+#ranking tr.odd td {
+  border-top: 1px solid #96CA2D; 
+}
+#ranking tr.even td {
+  border-top: 1px solid #96CA2D; 
+  background: #EDF7F2;
+}
+
+#content {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #7FC6BC;
+  border-radius: 10px;
+  background: #EDF7F2;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+
+}
+
+#notice {
+  margin-top: 15px;
+  font-size: 90%;
+}
+
+#notice ul {
+  margin-top: 5px;
+}
+
+
+.rankbox {
+  border: 1px solid #96CA2D;
+  font-size: 250%;
+  width: 6em;
+  text-align: right;
+  background: white;
+}

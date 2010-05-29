@@ -1,0 +1,58 @@
+<!doctype HTML>
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>台灣紅譜平均排行榜 (&beta;)</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/script.js"></script>
+  <link type="text/css" rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div id="container">
+  <div id="header">
+    <h1>jubeat ripples 台灣玩家 Extreme 譜面平均排行榜</h1>
+    <div id="announce">
+      <h3>統計</h3>
+    </div>
+  </div>
+  <h4>紅譜 EXCELLENT 排行榜</h4>
+  <div id="ranking">
+  <p>紅譜EXC譜面數前25名的玩家為：</p>
+  {% ifnotequal exc_rankers|length 0 %}
+  <table>
+  <tr>
+    <th class="rank">Rank</th><th class="">卡名</th><th class="">EXC譜面數</th>
+  </tr>
+  {% for exc_ranker in exc_rankers %}
+  <tr class="{% cycle odd,even %}">
+    <td class="rank">{{exc_ranker.rank}}</td>
+    <td>{{exc_ranker.card_name|escape|spacify}}</td>
+    <td class="">{{exc_ranker.songs_exc}}</td>
+  </tr>
+  {% endfor %}
+  </table>
+  {% endifnotequal %}
+  <p>EXC譜面數達成人數對照：</p>
+  {% ifnotequal exc_stats|length 0 %}
+  <table>
+  <tr>
+    <th class="rank">EXC譜面數</th><th class="">人數</th>
+  </tr>
+  {% for exc_stat in exc_stats %}
+  <tr class="{% cycle odd,even %}">
+    <td class="rank">{{exc_stat.songs_exc}}</td>
+    <td class="">{{exc_stat.count}}</td>
+  </tr>
+  {% endfor %}
+  </table>
+  {% endifnotequal %}
+
+  </div>
+
+  <div id="footer">
+    <p>維護者：<a href="http://littleb.tc">Littlebtc</a> (PTT/巴哈的ybite，卡名ZHAIQ)</p>
+  </div>
+  </div>
+</body>
+
+</html>
