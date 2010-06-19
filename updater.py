@@ -64,7 +64,7 @@ class UpdateUser(webapp.RequestHandler):
        
     # Connect to 573, checking player location
     try:
-      url = 'https://www.ea-pass.konami.jp/contents/jubeat/ripples/play_top.do?fid=' + str(friend_id)
+      url = 'https://www.ea-pass.konami.net/contents/jubeat/ripples/play_top.do?fid=' + str(friend_id)
       result = urlfetch.fetch(url=url)
     except:
       logging.error('573 is down (playerdata, urlfetch exception)')
@@ -101,7 +101,7 @@ class UpdateUser(webapp.RequestHandler):
         return
     # Connect to 573, fetching score
     try:
-      url = 'https://www.ea-pass.konami.jp/contents/jubeat/ripples/play_mdata_list.do?fid=' + str(friend_id)
+      url = 'https://www.ea-pass.konami.net/contents/jubeat/ripples/play_mdata_list.do?fid=' + str(friend_id)
       result = urlfetch.fetch(url=url)
     except:
       logging.error('573 is down (songlist, urlfetch exception')

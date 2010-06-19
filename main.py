@@ -69,7 +69,7 @@ class AddUser(webapp.RequestHandler):
        
     # Connect to 573, checking player location
     try:
-      url = 'https://www.ea-pass.konami.jp/contents/jubeat/ripples/play_top.do?fid=' + str(friend_id)
+      url = 'https://www.ea-pass.konami.net/contents/jubeat/ripples/play_top.do?fid=' + str(friend_id)
       result = urlfetch.fetch(url=url)
     except:
       self.response.out.write('573 is down!')
@@ -114,7 +114,7 @@ class AddUser(webapp.RequestHandler):
     #time.sleep(1)
     # Connect to 573, fetching score
     try:
-      url = 'https://www.ea-pass.konami.jp/contents/jubeat/ripples/play_mdata_list.do?fid=' + str(friend_id)
+      url = 'https://www.ea-pass.konami.net/contents/jubeat/ripples/play_mdata_list.do?fid=' + str(friend_id)
       result = urlfetch.fetch(url=url)
     except:
       self.response.out.write('573 is down!')
